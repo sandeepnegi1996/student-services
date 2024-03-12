@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
@@ -45,6 +46,11 @@ public class StudentControllerIT {
 
        String expected="{\"name\":\"spring\",\"id\":\"Course1\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
         JSONAssert.assertEquals(expected,response.getBody(),false);
+
+        System.out.println(response.getStatusCode());
+
+//        log.info(response.getBody());
+        System.out.println(response.getBody());
 
     }
 

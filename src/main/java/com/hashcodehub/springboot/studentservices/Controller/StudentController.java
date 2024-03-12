@@ -20,7 +20,9 @@ public class StudentController {
 
 
     @GetMapping()
-    public List<Course> retreiveCoursesForStudent(@PathVariable String studentId) {
+    public List<Course> retreiveCoursesForStudent(@PathVariable String studentId) throws InterruptedException {
+
+        Thread.sleep(5000);
         return studentService.retreiveCourses(studentId);
     }
 
