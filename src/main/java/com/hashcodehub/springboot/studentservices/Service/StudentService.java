@@ -2,6 +2,7 @@ package com.hashcodehub.springboot.studentservices.Service;
 
 import com.hashcodehub.springboot.studentservices.Model.Course;
 import com.hashcodehub.springboot.studentservices.Model.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -17,6 +18,9 @@ public class StudentService {
 
     private static final List<Student> students=new ArrayList<>();
     private final SecureRandom random = new SecureRandom();
+
+    @Value("${student.postgres.db}")
+    private String jdbcUrl;
 
     static {
         //Initialize Data
@@ -80,6 +84,7 @@ public class StudentService {
     //retreive all the courses for a student
 
     public List<Course> retreiveCourses(String studentId) {
+        System.out.println(jdbcUrl);
         Student student= retreiveStudent(studentId);
       return  student==null ?null : student.getCourses();
 

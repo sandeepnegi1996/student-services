@@ -1,0 +1,7 @@
+database:
+  url: jdbc:postgresql:/localhost:1111/instance
+  username : foo
+  password : bar
+
+esUrl: elasticsearch.hsbc.com:9092
+
