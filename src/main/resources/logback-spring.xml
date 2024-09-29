@@ -11,10 +11,6 @@
         </encoder>
     </appender>
 
-
-    <!--
-    The given logback configuration creates daily rolled-over logs with max log size of 10 MB, keeping 30 days worth of history,
-    but at most 10 GB of total archived logs. Older logs start getting deleted as soon as the size limit is breached.-->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 
         <file>${LOG_ROOT}/${LOG_FILE_NAME}.log</file>
