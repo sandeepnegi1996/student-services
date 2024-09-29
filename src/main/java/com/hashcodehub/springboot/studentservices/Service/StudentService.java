@@ -16,6 +16,8 @@ public class StudentService {
     //creating static data just to store and work with it
 
     private static final List<Student> students=new ArrayList<>();
+
+    private  List<Student> students2=new ArrayList<>();
     private final SecureRandom random = new SecureRandom();
 
     static {
@@ -65,6 +67,14 @@ public class StudentService {
 //    }
 
     public List<Student> retreiveAllStudents() {
+
+
+
+        // call another api ->
+
+        // DepartmentService.getDepartmenName  -> rest call to departservice
+
+
         return students;
     }
 
