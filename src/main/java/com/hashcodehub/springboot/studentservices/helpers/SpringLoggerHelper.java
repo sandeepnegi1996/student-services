@@ -8,7 +8,6 @@ public class SpringLoggerHelper {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
-
     public void helpMethod() {
 
         logger.debug("This is helper debug message");
