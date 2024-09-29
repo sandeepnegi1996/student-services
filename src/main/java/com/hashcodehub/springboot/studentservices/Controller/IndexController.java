@@ -21,7 +21,20 @@ public class IndexController {
         logger.warn("this is index warn logger message");
         logger.error("this is index error logger message");
 
+
+
         new SpringLoggerHelper().helpMethod();
         return "index";
+    }
+
+    @RequestMapping("/generateLogs")
+    public void generateLogs() {
+        for (int i = 0; i < 10000000; i++) {
+            logger.debug("massive debug logger message");
+            logger.info("massive info logger message");
+            logger.warn("massive warn logger message");
+            logger.error("massive error logger message");
+
+        }
     }
 }
