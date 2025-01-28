@@ -3,6 +3,7 @@ package com.hashcodehub.springboot.studentservices.Controller;
 import com.hashcodehub.springboot.studentservices.helpers.SpringLoggerHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ public class IndexController {
         logger.info("this is index info logger message");
         logger.warn("this is index warn logger message");
         logger.error("this is index error logger message");
+        logger.info("GCP Demo");
 
 
         new SpringLoggerHelper().helpMethod();
@@ -34,5 +36,6 @@ public class IndexController {
             logger.error("massive error logger message");
 
         }
+
     }
 }
