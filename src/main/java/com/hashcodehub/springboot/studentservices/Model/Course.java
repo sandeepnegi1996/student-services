@@ -1,16 +1,17 @@
 package com.hashcodehub.springboot.studentservices.Model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.Objects;
 
 public class Course {
 
+    List<String> steps;
     private String name;
     private String id;
-    public Course(String id,String name, String description, List<String> steps) {
-        this.id=id;
+    private String description;
+
+    public Course(String id, String name, String description, List<String> steps) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.steps = steps;
@@ -19,7 +20,7 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "id ' "+id+ '\''+
+                "id ' " + id + '\'' +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", steps=" + steps +
@@ -37,15 +38,15 @@ public class Course {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,name, description, steps);
+        return Objects.hash(id, name, description, steps);
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id=id;
+        this.id = id;
     }
 
     public String getName() {
@@ -71,8 +72,5 @@ public class Course {
     public void setSteps(List<String> steps) {
         this.steps = steps;
     }
-
-    private String description;
-    List<String> steps ;
 
 }

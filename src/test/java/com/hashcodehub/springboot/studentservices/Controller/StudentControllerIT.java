@@ -25,53 +25,47 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 //        JSONAssert.assertEquals(expected, response.getBody(), false) : Assert that the response contains expected fields.
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = StudentServicesApplication.class,webEnvironment =SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = StudentServicesApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class StudentControllerIT {
 
+    TestRestTemplate restTemplate = new TestRestTemplate();
+    HttpHeaders headers = new HttpHeaders();
     @LocalServerPort
     private int port;
-
-
-    TestRestTemplate restTemplate=new TestRestTemplate();
-
-    HttpHeaders headers = new HttpHeaders();
 
     @Test
     public void testRetrieveStudent1Course1() throws JSONException {
 
-        HttpEntity<String> entity=new HttpEntity<>(null,headers);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-       ResponseEntity<String> response =  restTemplate.exchange(
+        ResponseEntity<String> response = restTemplate.exchange(
                 createURLWithPort("/students/Student1/courses/Course1"),
-                HttpMethod.GET,entity,String.class);
+                HttpMethod.GET, entity, String.class);
 
-       String expected="{\"name\":\"spring\",\"id\":\"Course1\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
-        JSONAssert.assertEquals(expected,response.getBody(),false);
+        String expected = "{\"name\":\"spring\",\"id\":\"Course1\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
+        JSONAssert.assertEquals(expected, response.getBody(), false);
 
     }
 
     @Test
     public void testRetrieveStudent2Course2() throws JSONException {
-        HttpEntity<String> entity = new HttpEntity<>(null,headers);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-        ResponseEntity<String> response= restTemplate.exchange(
+        ResponseEntity<String> response = restTemplate.exchange(
                 createURLWithPort("/students/Student2/courses/Course2"),
-                HttpMethod.GET,entity,String.class
+                HttpMethod.GET, entity, String.class
         );
 
-        String expected="{\"name\":\"spring MVC\",\"id\":\"Course2\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
+        String expected = "{\"name\":\"spring MVC\",\"id\":\"Course2\",\"description\":\"10 Steps\",\"steps\":[\"Learn Maven\",\"Import Project\",\"First Example\",\"Second Example\"]}";
 
-        JSONAssert.assertEquals(expected,response.getBody(),false);
+        JSONAssert.assertEquals(expected, response.getBody(), false);
 
     }
-
 
 
     private String createURLWithPort(String uri) {
-        return "http://localhost:"+port+uri;
+        return "http://localhost:" + port + uri;
     }
-
-
 
 
 }

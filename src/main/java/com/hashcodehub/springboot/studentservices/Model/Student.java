@@ -1,7 +1,5 @@
 package com.hashcodehub.springboot.studentservices.Model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -12,6 +10,13 @@ public class Student {
     private String description;
     private List<Course> courses;
 
+
+    public Student(String id, String name, String description, List<Course> courses) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.courses = courses;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -26,32 +31,25 @@ public class Student {
         return Objects.hash(id, name, description, courses);
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public List<Course> getCourses(){
+    public List<Course> getCourses() {
         return courses;
     }
 
-    public Student(String id,String name,String description,List<Course> courses) {
-        this.id=id;
-        this.name=name;
-        this.description=description;
-        this.courses=courses;
-    }
-
     public String toString() {
-        return "studentId:  "+this.getId()+"  StudentName:  "+this.getName() +" description:  "+this.getDescription()
-                +"Courses "+this.getCourses();
+        return "studentId:  " + this.getId() + "  StudentName:  " + this.getName() + " description:  " + this.getDescription()
+                + "Courses " + this.getCourses();
 
     }
 
