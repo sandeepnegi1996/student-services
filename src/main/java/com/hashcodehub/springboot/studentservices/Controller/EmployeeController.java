@@ -17,6 +17,7 @@ public class EmployeeController {
     @GetMapping("/employee")
     public Employee getEmployee() {
         System.out.println("inside employee controller get employee");
+        log.info("inside hte employee controller get employee");
 
         log.info("employee controller returns a simple employee");
         Employee employee1 = Employee.builder().id(1).build();
